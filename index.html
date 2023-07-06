@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container-fluid bg-img d-flex justify-content-center align-items-center">
+        <div class="container my-2 my-md-0 h-90 bg-white card">
+            <h4 id="page_heading" class="p-4">Make Your Own Choice</h4>
+            <div class="row px-3 mt-auto flex-wrap-reverse text-center text-start">
+                <div class="col-12 col-md-6">
+                    <img src="asset 2.jpeg" alt="image" class="img-fluid h-75">
+                </div>
+                <!-- these alerts will be displayed on some events -->
+                <div class="col-12 col-md-6">                    
+                      <div id="successAlert" class="alert alert-success d-flex align-items-center justify-content-center rounded-start-0 border-start-0 gap-2 d-none" style="height: 10%;" role="alert">
+                        <i class="fa-solid fa-check"></i> 
+                        <div>
+                            Your account has been created successfully
+                        </div>
+                      </div>
+                      <div id="dangerAlert" class="alert alert-danger d-flex align-items-center justify-content-center rounded-start-0 border-start-0 gap-2 d-none" style="height: 10%;" role="alert">
+                        <i class="fa-solid fa-xmark"></i> 
+                        <div>
+                            Your email is incorrect
+                        </div>
+                      </div>
+                      <!-- acccessing -->
+                    <form id="existingAccountForm" class="mt-sm-0 mt-lg-5">
+                        <div class="mb-3">
+                            <label for="existingEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="existingEmail" name="email"
+                                aria-describedby="emailHelp" required>
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="existingPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="existingPassword" name="password"
+                                required>
+                        </div>
+                        <button type="submit" form="existingAccountForm" class="btn btn-primary" >Sign in</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- creation of new account -->
+            <div id="newContainer" class="d-flex justify-content-center gap-2 pb-4">
+                <h5 class="text-danger">Create a new account</h5>
+                <!-- Button trigger modal -->
+                <a type="button" class="" data-bs-toggle="modal" data-bs-target="#new_account_model">
+                    Sign up
+                </a>
+            </div>
+            <!-- Modal -->
+            <div id="new_account_model" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Create your new account</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="newAccountForm" class="row g-3" >
+                                <div class="col-md-6">
+                                    <label for="firstName" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Abhishek" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="lastName" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Raj" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="age" class="form-label">Age</label>
+                                    <input type="number" class="form-control" id="age" name="age" min="10" required>
+                                </div>
+                                <div class="col-md-8">
+                                    <label for="gender" class="form-label">Gender</label>
+                                    <select id="gender" class="form-select" name="gender" required>
+                                        <option selected>Male</option>
+                                        <option>Female</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="email" form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="abhishekkumar@example.com" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password"
+                                        pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^\w\d\s:])([^\s]){8,}$"
+                                        title="Password must be at least 8 characters long, and contain at least one uppercase letter, one lowercase letter, one digit, and one special character."
+                                        required>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gridCheck" required>
+                                        <label class="form-check-label" for="gridCheck">
+                                            Agree
+                                        </label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="closeModalBtn" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button id="signUpBtn" type="submit" class="btn btn-primary" form="newAccountForm">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/adb35ed7eb.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
